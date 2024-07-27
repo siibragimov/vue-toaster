@@ -1,0 +1,85 @@
+{
+  "name": "@siibragimov/vue-toaster",
+  "author": "sayid.ibragimov",
+  "license": "MIT",
+  "version": "1.0.0",
+  "public": true,
+  "type": "module",
+  "files": [
+    "dist",
+    "lib",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "main": "./dist/vue-toaster.umd.cjs",
+  "module": "./dist/vue-toaster.js",
+  "types": "./dist/vue-toaster.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-toaster.js",
+      "require": "./dist/vue-toaster.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/ lib/",
+    "postbuild": "rimraf dist/vite.svg",
+    "types": "vue-tsc lib/main.ts src/global.d.ts --declaration --allowJs --checkJs --emitDeclarationOnly --skipLibCheck --rootDir . --outFile dist/vue-toaster.d.ts",
+    "rename-types": "node scripts/rename-module.js",
+    "npm:publish": "npm publish --provenance --access public",
+    "github:package": "node scripts/rewrite-package.js",
+    "github:publish": "npm publish --scope=@siibragimov --registry=https://npm.pkg.github.com/ --provenance --access public"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.8.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^20.14.5",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.23.0",
+    "jsdom": "^24.1.0",
+    "npm-run-all2": "^6.2.0",
+    "postcss": "^8.4.40",
+    "prettier": "^3.2.5",
+    "rimraf": "^6.0.1",
+    "sass": "^1.77.8",
+    "tailwindcss": "^3.4.7",
+    "typescript": "~5.4.0",
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0",
+    "vue": "^3.4.29",
+    "vue-tsc": "^2.0.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siibragimov/vue-toaster.git"
+  },
+  "homepage": "https://github.com/siibragimov/vue-toaster#readme",
+  "bugs": {
+    "url": "https://github.com/siibragimov/vue-toaster/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "nuxt3",
+    "toast",
+    "typescript"
+  ]
+}
